@@ -7,6 +7,11 @@
 
 const Wappalyzer = require("driver");
 
+const withHttp = (url) =>
+  url.replace(/^(?:(.*:)?\/\/)?(.*)/i, (match, schemma, nonSchemmaUrl) =>
+    schemma ? match : `https://${nonSchemmaUrl}`
+  );
+
 const handler = async (event, context, callback) => {
   let responseBody = {};
   let statusCode = 200;
@@ -21,7 +26,7 @@ const handler = async (event, context, callback) => {
     };
   }
 
-  const URL = body.url;
+  const URL = withHttp(body.url);
 
   const options = {
     maxWait: 22000,
