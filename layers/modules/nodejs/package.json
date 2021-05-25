@@ -1,0 +1,43 @@
+{
+  "name": "uptain",
+  "description": "Identify technology on websites",
+  "keywords": [
+    "analyze",
+    "identify",
+    "detect",
+    "detector",
+    "technology",
+    "cms",
+    "framework",
+    "library",
+    "software"
+  ],
+  "homepage": "https://www.wappalyzer.com/",
+  "version": "1.0.0",
+  "author": "Wappalyzer",
+  "license": "MIT",
+  "repository": "https://github.com/aliasio/wappalyzer",
+  "funding": [
+    {
+      "url": "https://github.com/sponsors/aliasio"
+    },
+    {
+      "url": "https://paypal.me/elbertalias"
+    }
+  ],
+  "main": "driver.js",
+  "files": [
+    "cli.js",
+    "driver.js",
+    "index.js",
+    "technologies.json",
+    "wappalyzer.js"
+  ],
+  "bin": {
+    "wappalyzer": "./cli.js"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^9.1.0",
+    "puppeteer-core": "^9.1.1"
+  }
+}

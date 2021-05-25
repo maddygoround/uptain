@@ -1,0 +1,65 @@
+service: uptain
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  versionFunctions: false
+  profile: privateAws
+  memorySize: 3192
+  timeout: 30
+  logRetentionInDays: 1
+  region: us-east-1
+
+layers:
+  analyzer:
+    path: ./layers/analyzer
+    description: "Analyzer"
+  modules:
+    path: ./layers/modules
+    description: "Node lib functions"
+
+functions:
+  handler:
+    handler: handler.handler
+    name: uptain
+
+    events:
+      - http:
+          path: load
+          method: post
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-User-Name
+              - Startlower
+              - Text
+              - Access-Control-Allow-Headers
+              - Access-Control-Allow-Origin
+            allowCredentials: false
+
+    package:
+      exclude:
+        - README.md
+      include:
+        - handler.js
+
+    tags: # Function specific tags
+      Department: Transcoder
+      Owner: Mahendra
+      ServiceType: transcoder
+      Developer: Mahendra
+
+    layers:
+      - { Ref: AnalyzerLambdaLayer }
+      - { Ref: ModulesLambdaLayer }
+
+versionFunctions: false # Optional function versioning
