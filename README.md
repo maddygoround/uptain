@@ -1,6 +1,5 @@
-p align="center">
-<img width="460" height="300" src="https://storage.googleapis.com/saasify-uploads-prod/0ae68a98b68c371127fa23f21c0b1cd9f1625274.svg">
-
+<p align="center">
+<img width="260" height="150" src="https://storage.googleapis.com/saasify-uploads-prod/0ae68a98b68c371127fa23f21c0b1cd9f1625274.svg">
 </p>
 
 # Uptain
