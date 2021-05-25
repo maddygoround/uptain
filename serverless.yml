@@ -53,9 +53,9 @@ functions:
         - handler.js
 
     tags: # Function specific tags
-      Department: Transcoder
+      Department: Uptain
       Owner: Mahendra
-      ServiceType: transcoder
+      ServiceType: Uptain
       Developer: Mahendra
 
     layers:
